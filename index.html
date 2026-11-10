@@ -523,8 +523,8 @@ html{scrollbar-color:var(--line2) transparent}
 @media (max-width:380px){nav .links a.cta{display:none}}
 .mcta{display:none}
 @media (max-width:720px){
-  .mcta{display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;transform:translateY(160%);transition:transform .28s cubic-bezier(.2,.8,.2,1);pointer-events:none}
-  .mcta.on{transform:none;pointer-events:auto}
+  .mcta{display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;transform:translateY(12px);opacity:0;visibility:hidden;transition:transform .25s ease,opacity .25s ease,visibility 0s .25s;pointer-events:none}
+  .mcta.on{transform:none;opacity:1;visibility:visible;transition:transform .25s ease,opacity .25s ease;pointer-events:auto}
   .mcta a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:16px;background:var(--lime);color:#111;font-weight:600;font-size:16px;text-decoration:none;box-shadow:0 14px 34px -12px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.06)}
   footer{padding-bottom:84px}
 }
@@ -569,7 +569,7 @@ html{scrollbar-color:var(--line2) transparent}
 
     <div class="frame" aria-label="Ellavate Handbook">
       <div class="fbar"><i></i><i></i><i></i><span class="url">handboken.station-nord.se</span></div>
-      <picture class="sv"><source media="(max-width:720px)" srcset="prod-mob.webp" width="780" height="1624"><img class="shot" fetchpriority="high" src="prod-desk.webp" width="1180" height="1350" alt="Ellavate Handbook: sökningen 'bromsskiva sliten' med bedömning, paragraf och tabell över grund för bedömning"></picture><picture class="en-t"><source media="(max-width:720px)" srcset="prod-mob-en.webp" width="780" height="1624"><img class="shot" loading="lazy" src="prod-desk-en.webp" width="1180" height="1350" alt="Ellavate Handbook: sökningen 'bromsskiva sliten' med bedömning, paragraf och tabell över grund för bedömning"></picture>
+      <picture class="sv"><source media="(max-width:720px)" srcset="prod-mob.webp" width="780" height="1624"><img class="shot" fetchpriority="high" src="prod-desk.webp" width="1180" height="1350" alt="Ellavate Handbook: sökningen 'bromsskiva sliten' med bedömning, paragraf och tabell över grund för bedömning"></picture><picture class="en-t"><source media="(max-width:720px)" srcset="prod-mob-en.webp?v=2" width="780" height="1624"><img class="shot" loading="lazy" src="prod-desk-en.webp" width="1180" height="1350" alt="Ellavate Handbook: sökningen 'bromsskiva sliten' med bedömning, paragraf och tabell över grund för bedömning"></picture>
     </div>
   </div>
 </header>
