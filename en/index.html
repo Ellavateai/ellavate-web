@@ -691,6 +691,7 @@ footer .wrap.fgrid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1
 .fbt{grid-column:1/-1;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line2)}
 @media (max-width:860px){.fq,.ab{grid-template-columns:minmax(0,1fr);gap:24px}.faq,.about{padding-block:0 72px}footer .wrap.fgrid{grid-template-columns:minmax(0,1fr)}.fln{justify-content:flex-start}}
 @media (max-width:720px){.fql summary{font-size:16.5px;padding:16px 0}.abt p{font-size:16.5px}.abt p:first-child{font-size:18.5px}}
+.prodl{margin:6px 0}.prodl dt{font-family:var(--sans);font-size:16.5px;font-weight:600;letter-spacing:-.01em;color:var(--fg)}.prodl dd{color:var(--muted);font-size:16.5px}
 .features>.wrap{width:100%}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -970,11 +971,16 @@ footer .wrap.fgrid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1
 
 <section class="about" id="om">
   <div class="wrap ab">
-    <h2>The right answer for every technician, in every assessment.</h2>
+    <h2>The right answer, in every assessment.</h2>
     <div class="abt">
-      <p>Every day, inspection technicians make hundreds of assessments that decide how safe the vehicles on our roads are. We believe they deserve tools as reliable as they are.</p>
-      <p>Ellavate makes the regulations searchable. The technician asks in their own words and gets the answer in seconds, with the assessment, the paragraph and the page, word for word from the source. Every station then assesses the same way, and every decision can be traced.</p>
-      <p>The same foundation carries the whole family: Handbook for the technician on the floor, Engineer for the inspection engineer, Audit for whoever reviews the reports and Core for those building their own systems.</p>
+      <p>The people who decide how safe the vehicles on our roads are deserve tools as reliable as they are.</p>
+      <p>Ellavate turns the inspection rulebook into answers. Ask in your own words and get the assessment, the paragraph and the page in seconds, word for word from the source.</p>
+      <dl class="spec prodl">
+        <div><dt>Handbook</dt><dd>The technician gets the answer while the car is on the lift. Every station assesses the same way.</dd></div>
+        <div><dt>Engineer</dt><dd>The inspection engineer sees the full chain of statutes behind a vehicle, with every cross-reference written out.</dd></div>
+        <div><dt>Audit</dt><dd>Every report is checked against the regulation before it is signed. Errors are stopped on the floor, not in the audit.</dd></div>
+        <div><dt>Core</dt><dd>The rulebook as data, with stable ids and version history. For those building their own systems.</dd></div>
+      </dl>
       <p>We are a Swedish software company in Stockholm with our roots in cloud and AI for Nordic companies. The technology is our own, and we develop it together with the customers who use it every day.</p>
     </div>
   </div>
