@@ -521,6 +521,13 @@ html{scrollbar-color:var(--line2) transparent}
   .hero .btn,.cf button{min-height:48px}
 }
 @media (max-width:380px){nav .links a.cta{display:none}}
+.mcta{display:none}
+@media (max-width:720px){
+  .mcta{display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;transform:translateY(160%);transition:transform .28s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+  .mcta.on{transform:none;pointer-events:auto}
+  .mcta a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:16px;background:var(--lime);color:#111;font-weight:600;font-size:16px;text-decoration:none;box-shadow:0 14px 34px -12px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.06)}
+  footer{padding-bottom:84px}
+}
 .features>.wrap{width:100%}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -784,6 +791,7 @@ html{scrollbar-color:var(--line2) transparent}
   </div>
 </section>
 
+<div class="mcta" id="mcta"><a href="#demo"><span class="sv">Boka demo</span><span class="en-t">Book a demo</span></a></div>
 <footer>
   <div class="wrap">
     <span>© 2026 Ellavate AI AB · Stockholm · <span class="slogan f"><b>C</b>larity <b>l</b>eads <b>e</b>very <b>o</b>utcome</span></span>
@@ -821,6 +829,7 @@ html{scrollbar-color:var(--line2) transparent}
   document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){var sc=activeScene(); if(sc) playScene(sc);});});
   sv.addEventListener('click',function(){var sc=activeScene(); if(sc) playScene(sc);}); en.addEventListener('click',function(){var sc=activeScene(); if(sc) playScene(sc);});
   var FORM_ENDPOINT=''; /* t.ex. https://formspree.io/f/xxxx – tom = öppnar e-postprogrammet */
+  (function(){var m=document.getElementById('mcta'),h=document.querySelector('.hero .cta'),d=document.getElementById('demo');if(!m||!h||!d||!('IntersectionObserver' in window))return;var past=false,atForm=false;function u(){m.classList.toggle('on',past&&!atForm)}new IntersectionObserver(function(e){past=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;u()}).observe(h);new IntersectionObserver(function(e){atForm=e[0].isIntersecting;u()},{threshold:.05}).observe(d)})();
   var cf=document.getElementById('cf');
   cf.addEventListener('submit',function(e){ e.preventDefault();
     var ok=document.getElementById('f-ok'), er=document.getElementById('f-err'), m=document.getElementById('f-mail');
