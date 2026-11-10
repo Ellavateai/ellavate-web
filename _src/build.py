@@ -10,8 +10,8 @@ META={
    desc='Ellavate Handbook svarar på frågor ur besiktningsföreskrifterna medan bilen står på lyften. Varje svar med paragraf, i er egen profil. Handbook, Engineer, Audit och Core.',
    ogd='Svar ur föreskriften med paragraf, i er egen profil. I daglig drift hos Viking Kontroll Bilbesiktning.',og='/og.png',loc='sv_SE',priv='/integritet/'),
  'en':dict(url='/en/',title='Ellavate – AI for vehicle inspection',
-   desc='Ellavate Handbook answers questions from the vehicle inspection regulations while the car is on the lift. Every answer with its paragraph, in your own brand. Handbook, Engineer, Audit and Core.',
-   ogd='Answers from the regulation with the paragraph, in your own brand. In daily use at Viking Kontroll Bilbesiktning.',og='/og-en.png',loc='en_GB',priv='/en/privacy/')}
+   desc='Ellavate Handbook answers questions from the vehicle inspection regulations while the car is on the lift. Every answer shows its source, in your own brand. Handbook, Engineer, Audit and Core.',
+   ogd='Answers straight from the regulations, each with its source, in your own brand. In daily use at Viking Kontroll Bilbesiktning.',og='/og-en.png',loc='en_GB',priv='/en/privacy/')}
 def head(l,m,url=None,title=None,desc=None,alt=None):
     url=url or m['url']; title=title or m['title']; desc=desc or m['desc']
     alt=alt or {'sv':'/','en':'/en/'}
