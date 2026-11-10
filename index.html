@@ -521,13 +521,53 @@ html{scrollbar-color:var(--line2) transparent}
   .hero .btn,.cf button{min-height:48px}
 }
 @media (max-width:380px){nav .links a.cta{display:none}}
-.mcta{display:none}
-@media (max-width:720px){
-  .mcta{display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;transform:translateY(12px);opacity:0;visibility:hidden;transition:transform .25s ease,opacity .25s ease,visibility 0s .25s;pointer-events:none}
-  .mcta.on{transform:none;opacity:1;visibility:visible;transition:transform .25s ease,opacity .25s ease;pointer-events:auto}
-  .mcta a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:16px;background:var(--lime);color:#111;font-weight:600;font-size:16px;text-decoration:none;box-shadow:0 14px 34px -12px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.06)}
-  footer{padding-bottom:84px}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.scene,.scene *,.mf,.mf *,.tc,.tc *,.panel .copy,.cl,.cl *{min-width:0}
+.scene{overflow-wrap:break-word}
+.sc-top{flex-wrap:nowrap}
+.sc-top>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-top>.sc-plate,.sc-top>.sc-mod{flex:none;overflow:visible}
+.sc-typed{overflow-wrap:anywhere}
+.sc-search{align-items:center}
+.sc-ref{grid-template-columns:minmax(0,170px) minmax(0,1fr)}
+.sc-ref .m{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-ref>span{overflow-wrap:anywhere}
+.sc-hist{grid-template-columns:86px minmax(0,1fr) auto}
+.sc-hist>span{overflow-wrap:anywhere}
+.sc-pr{grid-template-columns:44px 66px minmax(0,1fr) auto}
+.sc-pr>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-code pre,.sc-req .sc-typed{overflow-wrap:anywhere;word-break:break-word}
+.sc-tr>span{overflow-wrap:anywhere}
+.mf{max-width:100%}.mf .voice{max-width:100%}.mf .voice>span{white-space:normal;overflow-wrap:anywhere}
+.tgrid{min-width:0}.tgrid>*{min-width:0}
+.cl p,.cl h2{overflow-wrap:break-word}
+@media (max-width:560px){
+  .sc-ref{grid-template-columns:1fr;gap:2px}
+  .sc-top{font-size:12px;gap:8px;padding:9px 10px}
+  .sc-plate{letter-spacing:.04em;padding:2px 6px}
+  .sc-mod{font-size:10px}
+  .sc-hist{grid-template-columns:minmax(0,1fr) auto}.sc-hist .m{grid-column:1/-1}
+  .sc-pr{grid-template-columns:40px 62px minmax(0,1fr) auto;gap:6px;padding:8px 4px}
+  .sc-stats{gap:14px}
 }
+@media (max-width:380px){
+  .sc-pr{grid-template-columns:38px minmax(0,1fr) auto}.sc-pr>span:nth-child(3){display:none}
+  .hero h1{font-size:32px}
+}
+.sc-scan .sc-typed,.sc-req .sc-typed{white-space:normal;overflow:visible;text-overflow:clip}
+.sc-ref{grid-template-columns:minmax(0,190px) minmax(0,1fr)}
+.tgrid{grid-auto-rows:1fr}
+.tc{height:auto;min-height:200px}
+.tc .th span,.tc .ta em{overflow-wrap:anywhere}
+.tc .ta{flex-wrap:wrap;row-gap:2px}
+@media (max-width:1100px){.tc .ta strong{font-size:19px}}
+@media (max-width:860px){.close .box{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.sc-ref{grid-template-columns:1fr}}
+@media (max-width:360px){.sc-mod{display:none}.scene .m{font-size:11px}.close .box{padding:22px 14px}}
+@media (min-width:721px){.scene{gap:10px}}
+@media (max-width:330px){.sc-top{font-size:11px;gap:6px}}
+nav .logo{display:flex;align-items:center;min-height:44px}
+@media (min-width:861px) and (max-width:1100px){.scene{gap:8px;padding:14px;font-size:13px}.scene .sc-card{padding:12px;gap:8px}}
 .features>.wrap{width:100%}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -627,7 +667,7 @@ html{scrollbar-color:var(--line2) transparent}
     <div class="panel" id="p-audit" role="tabpanel">
       <div class="copy"><div class="wm"><i></i><small>Ellavate</small>Audit</div><h3><span class="sv">Granskar protokollet innan revisionen gör det.</span><span class="en-t">Reviews the report before the auditor does.</span></h3><p><span class="sv">Fel anmärkningskod, saknad bedömning, orimlig kombination. Flaggas innan protokollet lämnar stationen.</span><span class="en-t">Wrong defect code, missing assessment, implausible combination. Flagged before the report leaves the station.</span></p></div>
       <div class="scene" data-scene="audit">
-  <div class="sc-top"><span class="sc-plate">KLM 456</span><span>VW Transporter · 2016</span><span class="sc-mod">AUDIT</span></div>
+  <div class="sc-top"><span class="sc-plate">MNO 789</span><span>VW Transporter · 2016</span><span class="sc-mod">AUDIT</span></div>
   <div class="sc-scan"><div class="sc-scanbar"><i></i></div><span class="sc-typed" data-sv="Granskar protokoll 14:31 mot TSFS 2017:54" data-en="Checking report 14:31 against TSFS 2017:54"></span></div>
   <div class="sc-card">
     <div class="sc-chk a1 ok"><i></i><span class="sv">Anmärkningskoder giltiga</span><span class="en-t">Defect codes valid</span><em>9/9</em></div>
@@ -791,7 +831,6 @@ html{scrollbar-color:var(--line2) transparent}
   </div>
 </section>
 
-<div class="mcta" id="mcta"><a href="#demo"><span class="sv">Boka demo</span><span class="en-t">Book a demo</span></a></div>
 <footer>
   <div class="wrap">
     <span>© 2026 Ellavate AI AB · Stockholm · <span class="slogan f"><b>C</b>larity <b>l</b>eads <b>e</b>very <b>o</b>utcome</span></span>
@@ -829,7 +868,6 @@ html{scrollbar-color:var(--line2) transparent}
   document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){var sc=activeScene(); if(sc) playScene(sc);});});
   sv.addEventListener('click',function(){var sc=activeScene(); if(sc) playScene(sc);}); en.addEventListener('click',function(){var sc=activeScene(); if(sc) playScene(sc);});
   var FORM_ENDPOINT=''; /* t.ex. https://formspree.io/f/xxxx – tom = öppnar e-postprogrammet */
-  (function(){var m=document.getElementById('mcta'),h=document.querySelector('.hero .cta'),d=document.getElementById('demo');if(!m||!h||!d||!('IntersectionObserver' in window))return;var past=false,atForm=false;function u(){m.classList.toggle('on',past&&!atForm)}new IntersectionObserver(function(e){past=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;u()}).observe(h);new IntersectionObserver(function(e){atForm=e[0].isIntersecting;u()},{threshold:.05}).observe(d)})();
   var cf=document.getElementById('cf');
   cf.addEventListener('submit',function(e){ e.preventDefault();
     var ok=document.getElementById('f-ok'), er=document.getElementById('f-err'), m=document.getElementById('f-mail');
