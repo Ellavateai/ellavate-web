@@ -614,6 +614,36 @@ nav .logo{display:flex;align-items:center;min-height:44px}
 @media (prefers-reduced-motion:reduce){.wl *{transition:none!important}}
 @media (max-width:560px){.wl-pick{gap:6px}.wl-pick button{font-size:12.5px;padding:0 10px;gap:6px}}
 @media (max-width:340px){.wl-url{font-size:10px;padding:5px 7px;margin-left:4px}}
+.wl-mark{background:none!important;width:28px;height:28px;border-radius:0}
+.wl-mark svg,.wl-pick button svg,.wl-fav svg{display:block;width:100%;height:100%}
+.wl-pick button svg{width:18px;height:18px;flex:none}
+.wl-fav{width:14px;height:14px;flex:none;margin-left:8px}
+.wl-fav+.wl-url{margin-left:0}
+.wl-name b,.wl-name i,.wl-name em{font-style:normal;font-weight:inherit}
+.wl[data-k="nord"]{--rad:5px}
+.wl[data-k="nord"] .wl-name{font-size:12px;letter-spacing:.14em;font-weight:400}
+.wl[data-k="nord"] .wl-name{font-size:10px;line-height:1.25}.wl[data-k="nord"] .wl-name b{font-weight:800;display:block;font-size:14px;letter-spacing:.16em}
+.wl[data-k="nord"] .wl-side{border-right:3px solid #B5262B}
+.wl[data-k="nord"] .wl-h{text-transform:uppercase;letter-spacing:.02em;font-size:18px;font-weight:700}
+.wl[data-k="kyst"]{--rad:14px}
+.wl[data-k="kyst"] .wl-name{font-family:Georgia,"Times New Roman",serif;font-size:17px;font-weight:400;letter-spacing:0}
+.wl[data-k="kyst"] .wl-name i{font-style:italic;color:#6FD0F5}
+.wl[data-k="kyst"] .wl-h{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:22px;letter-spacing:-.01em}
+.wl[data-k="kyst"] .wl-main{background:#F4F8FB}
+.wl[data-k="syn"]{--rad:999px}
+.wl[data-k="syn"] .wl-name{font-size:17px;font-weight:700;letter-spacing:-.04em}
+.wl[data-k="syn"] .wl-name em{color:#17694A;font-weight:700;padding:0 1px}
+.wl[data-k="syn"] .wl-side{border-right:1px solid #D5E3DA}
+.wl[data-k="syn"] .wl-main{background:#FAFCFA}
+.wl[data-k="syn"] .wl-card{border-radius:20px}
+.wl[data-k="syn"] .wl-q{border-radius:999px;padding-left:16px}
+.wl-btn,.wl-grade{border-radius:var(--rad,10px)}
+.wl[data-k="syn"] .wl-grade{border-radius:999px}
+.wl[data-k="nord"] .wl-card,.wl[data-k="nord"] .wl-q{border-radius:6px}
+.wl[data-k="nord"] .wl-docs span{border-radius:3px}
+.wl-grade.w{padding:0 10px;font-size:12.5px}
+@media (max-width:1100px){.wl .wl-h{font-size:17px!important}.wl-row{gap:8px}}
+@media (max-width:340px){.wl .wl-h{font-size:15px!important}.wl-url{font-size:9.5px}.wl-fav{margin-left:2px}.wl-card{padding:12px}}
 .features>.wrap{width:100%}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -807,7 +837,7 @@ nav .logo{display:flex;align-items:center;min-height:44px}
     <div class="wl" id="wl">
       <div class="wl-pick" role="tablist" aria-label="Exempel på kundportaler"></div>
       <div class="wl-win">
-        <div class="wl-bar"><i></i><i></i><i></i><span class="wl-url"></span></div>
+        <div class="wl-bar"><i></i><i></i><i></i><span class="wl-fav"></span><span class="wl-url"></span></div>
         <div class="wl-app">
           <aside class="wl-side">
             <div class="wl-logo"><b class="wl-mark"></b><span class="wl-name"></span></div>
@@ -932,22 +962,22 @@ nav .logo{display:flex;align-items:center;min-height:44px}
   var FORM_ENDPOINT=''; /* t.ex. https://formspree.io/f/xxxx – tom = öppnar e-postprogrammet */
   (function(){var el=document.getElementById('wl');if(!el)return;
     var T=[
-     {n:'Nordbesiktning',u:{sv:'handboken.nordbesiktning.se',en:'handboken.nordbesiktning.se'},a:'#B84241',at:'#fff',sb:'#F3EEE8',sf:'#2B2B2B',
+     {k:'nord',n:'Nordbesiktning',u:{sv:'handboken.nordbesiktning.se',en:'handboken.nordbesiktning.se'},a:'#B5262B',at:'#fff',sb:'#F4F1EC',sf:'#1D1D1B',
       d:{sv:['TSFS 2017:54','Fabrikat & modell','Kontaktvägar'],en:['TSFS 2017:54','Make & model','Contacts']},
       q:{sv:'kulhandske slitage',en:'ball coupling wear'},h:{sv:'Kulhandske',en:'Ball coupling'},s:{sv:'påtagligt skadad eller sliten',en:'noticeably damaged or worn'},g:'2',
       r:{sv:'TSFS 2017:54 · bilaga 1 · 9.1.7',en:'TSFS 2017:54 · annex 1 · 9.1.7'},b:{sv:'Öppna sida 89–92 →',en:'Open page 89–92 →'},
       st:{sv:'Frågor den här veckan',en:'Questions this week'},bars:[['Uppsala',412],['Västerås',388],['Gävle',301]]},
-     {n:'Kyst Kontroll',u:'handboka.kystkontroll.no',a:'#5BC0EB',at:'#0B2236',sb:'#0F2A44',sf:'#EAF1F8',
+     {k:'kyst',n:'Kyst Kontroll',u:'handboka.kystkontroll.no',a:'#0B2742',at:'#fff',sb:'#0B2742',sf:'#EAF1F8',
       d:['Kontrollinstruksen','Merke og modell','Kontakter'],q:'trekantrefleks tilhenger',h:'Trekantreflekser bak',s:'mangler på tilhenger',g:'2',
       r:'Statens vegvesen · kontrollinstruksen',b:'Åpne kilden →',st:'Spørsmål denne uken',bars:[['Bergen',356],['Stavanger',298],['Ålesund',144]]},
-     {n:'Syn & Kontrol',u:'haandbog.synkontrol.dk',a:'#2F7D4E',at:'#fff',sb:'#1C1C1C',sf:'#F2F2F2',
+     {k:'syn',n:'Syn & Kontrol',u:'haandbog.synkontrol.dk',a:'#17694A',at:'#fff',sb:'#EEF5F0',sf:'#12301F',
       d:['Synsvejledningen','Mærke og model','Kontakter'],q:'trekantreflekser trailer',h:'Trekantreflekser bag',s:'mangler på påhængsvogn',g:'Omsyn',
       r:'Færdselsstyrelsen · vejledning om syn',b:'Åbn kilden →',st:'Spørgsmål i denne uge',bars:[['Aarhus',402],['Odense',367],['Aalborg',251]]}];
-    var cur=0,timer=null,auto=true,$=function(s){return el.querySelector(s)};
+    var LG={'nord': '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#B5262B"/><path d="M16 5l6.5 20L16 20.5 9.5 25z" fill="#fff"/><path d="M16 5v15.5L9.5 25z" fill="#F3C9C9"/></svg>', 'kyst': '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#0B2742"/><path d="M5 13c3.7-3.4 7.3-3.4 11 0s7.3 3.4 11 0" fill="none" stroke="#6FD0F5" stroke-width="2.6" stroke-linecap="round"/><path d="M5 20c3.7-3.4 7.3-3.4 11 0s7.3 3.4 11 0" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>', 'syn': '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 1.5l12.6 7.25v14.5L16 30.5 3.4 23.25V8.75z" fill="#17694A"/><path d="M9.5 16.5l4.6 4.6 8.6-9.4" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'},WM={'nord': '<b>NORD</b>BESIKTNING', 'kyst': 'Kyst <i>Kontroll</i>', 'syn': 'syn<em>&amp;</em>kontrol'};var cur=0,timer=null,auto=true,$=function(s){return el.querySelector(s)};
     function L(v){var en=document.body.classList.contains('en');return (v&&typeof v==='object'&&!Array.isArray(v)&&('sv' in v))?v[en?'en':'sv']:v}
-    var pick=$('.wl-pick');T.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.innerHTML='<i style="background:'+t.a+'"></i>';b.appendChild(document.createTextNode(t.n));b.addEventListener('click',function(){auto=false;clearInterval(timer);show(i)});pick.appendChild(b)});
+    var pick=$('.wl-pick');T.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.innerHTML=LG[t.k];b.appendChild(document.createTextNode(t.n));b.addEventListener('click',function(){auto=false;clearInterval(timer);show(i)});pick.appendChild(b)});
     function fill(i){var t=T[i];el.style.setProperty('--a',t.a);el.style.setProperty('--at',t.at);el.style.setProperty('--sb',t.sb);el.style.setProperty('--sf',t.sf);
-      $('.wl-url').textContent=L(t.u);$('.wl-mark').textContent=t.n.charAt(0);$('.wl-name').textContent=t.n;
+      el.setAttribute('data-k',t.k);$('.wl-url').textContent=L(t.u);$('.wl-fav').innerHTML=LG[t.k];$('.wl-mark').innerHTML=LG[t.k];$('.wl-name').innerHTML=WM[t.k];
       var d=$('.wl-docs');d.textContent='';L(t.d).forEach(function(x){var s=document.createElement('span');s.textContent=x;d.appendChild(s)});
       $('.wl-query').textContent=L(t.q);$('.wl-h').textContent=L(t.h);$('.wl-sub').textContent=L(t.s);var g=$('.wl-grade');g.textContent=t.g;g.classList.toggle('w',t.g.length>2);
       $('.wl-src').textContent=L(t.r);$('.wl-btn').textContent=L(t.b);$('.wl-st').textContent=L(t.st);
