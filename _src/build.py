@@ -6,10 +6,10 @@ R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 src=open(os.path.join(R,'_src','site.html'),encoding='utf-8').read()
 B='https://ellavate.ai'
 META={
- 'sv':dict(url='/',title='Ellavate – Föreskrifterna i fickan för besiktningstekniker',
+ 'sv':dict(url='/',title='Ellavate – AI för fordonsbesiktning',
    desc='Ellavate Handbook svarar på frågor ur besiktningsföreskrifterna medan bilen står på lyften. Varje svar med paragraf, i er egen profil. Handbook, Engineer, Audit och Core.',
    ogd='Svar ur föreskriften med paragraf, i er egen profil. I daglig drift hos Viking Kontroll Bilbesiktning.',og='/og.png',loc='sv_SE',priv='/integritet/'),
- 'en':dict(url='/en/',title='Ellavate – The inspection rules in the technician\'s pocket',
+ 'en':dict(url='/en/',title='Ellavate – AI for vehicle inspection',
    desc='Ellavate Handbook answers questions from the vehicle inspection regulations while the car is on the lift. Every answer with its paragraph, in your own brand. Handbook, Engineer, Audit and Core.',
    ogd='Answers from the regulation with the paragraph, in your own brand. In daily use at Viking Kontroll Bilbesiktning.',og='/og-en.png',loc='en_GB',priv='/en/privacy/')}
 def head(l,m,url=None,title=None,desc=None,alt=None):
