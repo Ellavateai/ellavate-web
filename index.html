@@ -1175,7 +1175,7 @@ footer .slogan{color:#55554F}
   var sc0=activeScene(); if(sc0) playScene(sc0);
   setInterval(function(){var sc=activeScene(); if(sc) playScene(sc);},9000);
   document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){var sc=activeScene(); if(sc) playScene(sc);});});
-  var FORM_ENDPOINT=''; /* t.ex. https://formspree.io/f/xxxx – tom = öppnar e-postprogrammet */
+  var FORM_ENDPOINT='https://formspree.io/f/xnpdajqp'; /* t.ex. https://formspree.io/f/xxxx – tom = öppnar e-postprogrammet */
   (function(){var el=document.getElementById('wl');if(!el)return;
     var T=[
      {k:'nord',n:'Nordbesiktning',u:{sv:'handboken.nordbesiktning.se',en:'handboken.nordbesiktning.se'},a:'#B5262B',at:'#fff',sb:'#F4F1EC',sf:'#1D1D1B',
@@ -1216,14 +1216,14 @@ footer .slogan{color:#55554F}
     var ok=document.getElementById('f-ok'), er=document.getElementById('f-err'), m=document.getElementById('f-mail');
     var valid=document.getElementById('f-name').value.trim()&&document.getElementById('f-co').value.trim()&&/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m.value);
     if(!valid){ er.hidden=false; ok.hidden=true; return; }
-    var data={name:document.getElementById('f-name').value.trim(),company:document.getElementById('f-co').value.trim(),email:m.value.trim(),lang:b.classList.contains('en')?'en':'sv'};
+    var data={name:document.getElementById('f-name').value.trim(),company:document.getElementById('f-co').value.trim(),email:m.value.trim(),lang:b.classList.contains('en')?'en':'sv'};data._subject='Demo – '+data.company;
+    function viaMail(){ var subj=encodeURIComponent('Demo – '+data.company), bodyTxt=encodeURIComponent('Hej!\n\nVi vill boka en demo av Ellavate Handbook.\n\nNamn: '+data.name+'\nFöretag: '+data.company+'\nE-post: '+data.email+'\n');
+      window.location.href='mailto:rai@ellavate.ai?subject='+subj+'&body='+bodyTxt; er.hidden=true; ok.hidden=false; send.disabled=true; }
+    var send=document.getElementById('f-send'); er.hidden=true;
     if(FORM_ENDPOINT){
-      fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){ if(!r.ok) throw 0; er.hidden=true; ok.hidden=false; document.getElementById('f-send').disabled=true; }).catch(function(){ er.hidden=false; });
-    } else {
-      var subj=encodeURIComponent('Demo – '+data.company), bodyTxt=encodeURIComponent('Hej!\n\nVi vill boka en demo av Ellavate Handbook.\n\nNamn: '+data.name+'\nFöretag: '+data.company+'\nE-post: '+data.email+'\n');
-      window.location.href='mailto:rai@ellavate.ai?subject='+subj+'&body='+bodyTxt;
-      er.hidden=true; ok.hidden=false; document.getElementById('f-send').disabled=true;
-    }
+      send.disabled=true;
+      fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){ if(!r.ok) throw 0; ok.hidden=false; cf._sent=true; }).catch(function(){ send.disabled=false; viaMail(); });
+    } else { viaMail(); }
   });
 })();
 </script>
