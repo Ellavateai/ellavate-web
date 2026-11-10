@@ -840,6 +840,163 @@ footer,.fco,.fbt{color:var(--muted)}
 .sc-tr.hit{color:#111}.sc-hist.hit em{color:#D6FF00}.sc-chk.bad,.sc-chk.bad em{color:#9C2F2E}.sc-stats b.w{color:#9C2F2E}.sc-pr em.wn{color:#9C2F2E}
 footer .slogan{color:#55554F}
 .sc-status span:not(:first-child){color:#C9C9C4}
+/* ---- produktfilmer: mörk scen, stora satser, riktig vy, kamera ---- */
+.film,.film *{box-sizing:border-box}
+.film{position:relative;width:100%;aspect-ratio:4/3;background:#0B0B0B;border-radius:16px;overflow:hidden;color:#F4F4F1;container-type:inline-size}
+.fm-stage{position:absolute;left:0;top:0;width:800px;height:600px;transform-origin:0 0;transform:scale(calc(100cqw / 800px));font-family:var(--sans)}
+@supports not (width:1cqw){.fm-stage{transform:scale(var(--fk,1))}}
+.fm-b{position:absolute;inset:0;opacity:0;transition:opacity .5s ease;pointer-events:none}
+.fm-b.on{opacity:1}
+.fm-big{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:0 60px}
+.fm-big b{font-size:64px;font-weight:600;letter-spacing:-.035em;line-height:1.02;display:block;transform:translateY(18px);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.fm-big>span{font-size:24px;color:#B5B5B0;transform:translateY(12px);opacity:0;transition:transform .7s .25s cubic-bezier(.2,.8,.2,1),opacity .6s .25s}
+.fm-b.on .fm-big b,.fm-b.on .fm-big>span{transform:none;opacity:1}
+.fm-big b.lime{color:#D6FF00}
+.fm-cap{position:absolute;left:0;right:0;bottom:0;padding:90px 30px 42px;background:linear-gradient(transparent,rgba(11,11,11,.9) 52%,#0B0B0B);text-align:center;font-size:31px;font-weight:500;letter-spacing:-.02em;opacity:0;transform:translateY(10px);transition:opacity .45s,transform .6s cubic-bezier(.2,.8,.2,1);text-shadow:0 2px 18px rgba(0,0,0,.7)}
+.fm-cap.on{opacity:1;transform:none}
+/* rutnät med 80 protokoll */
+.fm-grid{position:absolute;left:150px;top:92px;width:500px;display:grid;grid-template-columns:repeat(10,1fr);gap:8px}
+.fm-grid i{height:38px;border-radius:6px;background:#1E1E1C;position:relative;transform:scale(.6);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s,background .5s,box-shadow .5s}
+.fm-b.on .fm-grid i{transform:none;opacity:1}
+.fm-grid i.s{transition-delay:0s}
+[data-step="2"] .fm-grid i.s,[data-step="3"] .fm-grid i.s,[data-step="4"] .fm-grid i.s{background:#D6FF00;box-shadow:0 0 18px rgba(214,255,0,.35)}
+.fm-grid i.e::after{content:"";position:absolute;right:5px;top:5px;width:8px;height:8px;border-radius:50%;background:#FF5A52;opacity:0;transform:scale(0);transition:opacity .3s,transform .4s cubic-bezier(.2,1.6,.4,1)}
+[data-step="3"] .fm-grid i.e::after,[data-step="4"] .fm-grid i.e::after{opacity:1;transform:none}
+[data-step="4"] .fm-grid i:not(.s){background:#151514;opacity:.55}
+[data-step="4"] .fm-grid i.s:not(.e){background:#6F8500;box-shadow:none}
+/* produktfönstret */
+.fm-cam{position:absolute;inset:0;transform-origin:0 0;transition:transform 1.5s cubic-bezier(.65,0,.2,1)}
+.fm-win{position:absolute;left:50px;top:58px;width:700px;height:430px;border-radius:14px;background:#F6F6F4;color:#111;overflow:hidden;box-shadow:0 40px 90px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08);transform:translateY(60px) scale(.94);opacity:0;transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .7s}
+.fm-b.on .fm-win{transform:none;opacity:1}
+.fm-wbar{height:34px;background:#ECECE8;display:flex;align-items:center;gap:6px;padding:0 12px;font-family:var(--mono);font-size:10.5px;color:#55554F}
+.fm-wbar u{width:8px;height:8px;border-radius:50%;background:#CFCFCA}
+.fm-wbar span{margin-left:8px;background:#fff;border-radius:6px;padding:3px 10px}
+.fm-wbody{display:grid;grid-template-columns:118px 1fr;height:396px}
+.fm-wside{background:#EFEFEB;padding:14px 12px;display:flex;flex-direction:column;gap:10px;font-size:11px;color:#55554F}
+.fm-wside b{display:flex;align-items:center;gap:6px;font-size:12.5px;color:#111;font-weight:600}
+.fm-wside b::before{content:"";width:16px;height:16px;border-radius:5px;background:#111 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-12 -13 69 69'%3E%3Cpath fill='none' stroke='%23D6FF00' stroke-width='12.08' d='M6.04 37.96 L17.06 37.96 L17.06 21.44 L28.07 21.44 L28.07 4.91 L39.09 4.91'/%3E%3C/svg%3E") center/contain no-repeat}
+.fm-wside em{font-style:normal;padding:5px 7px;border-radius:5px}
+.fm-wside em.a{background:#E2E2DD;color:#111;font-weight:500}
+.fm-wmain{padding:16px 18px;display:flex;flex-direction:column;gap:11px;position:relative}
+.fm-wh{font-size:17px;font-weight:600;letter-spacing:-.02em}
+.fm-wsub{font-size:10.5px;color:#55554F;margin-top:-7px}
+.fm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.fm-stats div{background:#fff;border:1px solid #E4E4DF;border-radius:9px;padding:9px 10px;font-size:10.5px;color:#55554F;display:flex;flex-direction:column;gap:2px}
+.fm-stats b{font-size:21px;color:#111;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.fm-stats div.k b{color:#B3261E}
+.fm-scan{height:5px;border-radius:3px;background:#E4E4DF;overflow:hidden}
+.fm-scan i{display:block;height:100%;width:0;background:#C9FF3B;transition:width .9s cubic-bezier(.3,.7,.2,1)}
+[data-step="6"] .fm-scan i,[data-step="7"] .fm-scan i,[data-step="8"] .fm-scan i{width:100%}
+.fm-rows{display:flex;flex-direction:column;background:#fff;border:1px solid #E4E4DF;border-radius:10px;overflow:hidden}
+.fm-rows div{display:grid;grid-template-columns:62px 1fr auto;gap:10px;align-items:center;padding:8px 11px;border-bottom:1px solid #EFEFEA;font-size:11px;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.fm-rows div:last-child{border-bottom:0}
+.fm-rows span:first-child{font-family:var(--mono);font-weight:500}
+.fm-rows em{font-style:normal;font-size:9.5px;font-weight:600;padding:2px 7px;border-radius:999px;background:#FBE9E7;color:#B3261E}
+.fm-rows em.v{background:#FFF3D6;color:#8A5A00}
+[data-step="6"] .fm-rows div,[data-step="7"] .fm-rows div,[data-step="8"] .fm-rows div{opacity:1;transform:none}
+.fm-rows div:nth-child(2){transition-delay:.08s}.fm-rows div:nth-child(3){transition-delay:.16s}.fm-rows div:nth-child(4){transition-delay:.24s}
+.fm-rows div.hit{background:#F7FFE0;box-shadow:inset 3px 0 0 #C9FF3B}
+/* avvikelsekort och protokoll */
+.fm-card{position:absolute;left:18px;top:150px;width:262px;background:#fff;border:1px solid #111;border-radius:11px;padding:12px 13px;box-shadow:0 20px 40px -18px rgba(0,0,0,.5);font-size:10px;line-height:1.4;opacity:0;transform:translateY(10px) scale(.97);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+[data-step="7"] .fm-card,[data-step="8"] .fm-card{opacity:1;transform:none}
+.fm-card .h6{margin:0 0 7px;font-size:12.5px;font-weight:600;letter-spacing:-.01em;display:flex;justify-content:space-between;gap:8px}
+.fm-card .h6 em{font-style:normal;font-size:9px;background:#FBE9E7;color:#B3261E;border-radius:999px;padding:2px 7px;align-self:flex-start;white-space:nowrap}
+.fm-card dl{margin:0;display:grid;grid-template-columns:62px 1fr;gap:5px 8px}
+.fm-card dt{font-family:var(--mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:#6F6F69;padding-top:1px}
+.fm-card dd{margin:0;color:#111}
+.fm-paper{position:absolute;right:18px;top:118px;width:236px;height:262px;background:#fff;border:1px solid #D9D9D4;border-radius:4px;padding:12px 13px;font-size:8px;color:#55554F;box-shadow:0 10px 30px -14px rgba(0,0,0,.35);opacity:0;transform:translateY(10px);transition:opacity .5s .15s,transform .6s .15s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:6px}
+[data-step="7"] .fm-paper,[data-step="8"] .fm-paper{opacity:1;transform:none}
+.fm-paper b{color:#111;font-size:9.5px;font-weight:600}
+.fm-paper p{margin:0;display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #EFEFEA;padding-bottom:4px}
+.fm-paper p.mk{position:relative;background:transparent;border:1.5px solid transparent;border-radius:3px;padding:3px 4px;margin:0 -5px;color:#111;transition:background .5s .5s,border-color .5s .5s}
+[data-step="8"] .fm-paper p.mk{background:#F7FFE0;border-color:#9CCB00}
+.fm-paper p.mk::before{content:"1";position:absolute;left:-17px;top:1px;width:14px;height:14px;border-radius:50%;background:#111;color:#D6FF00;font-size:8px;font-weight:700;display:grid;place-items:center;opacity:0;transition:opacity .4s .6s}
+[data-step="8"] .fm-paper p.mk::before{opacity:1}
+[data-film="audit"][data-step="7"] .fm-cam{transform:translate(-130px,-330px) scale(1.6)}
+[data-film="audit"][data-step="8"] .fm-cam{transform:translate(-500px,-330px) scale(1.6)}
+.fm-prog{position:absolute;left:0;bottom:0;height:3px;background:#D6FF00;width:0;opacity:.8}
+@media (prefers-reduced-motion:reduce){.film *{transition:none!important}}
+
+/* gemensamt: on-klass för delar inne i en bild */
+.fm-x{opacity:0;transform:translateY(10px);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.fm-x.on{opacity:1;transform:none}
+/* handbook: sidor som rusar förbi, sedan frågan och svaret */
+.fm-pages{position:absolute;left:250px;top:40px;width:300px;height:420px;overflow:hidden;border-radius:8px;background:#F6F6F4;box-shadow:0 30px 70px -20px rgba(0,0,0,.8)}
+.fm-pages div{position:absolute;left:0;right:0;top:0;padding:22px 24px;display:flex;flex-direction:column;gap:9px;animation:fscroll 2.2s linear infinite}
+.fm-pages u{display:block;height:6px;border-radius:3px;background:#D4D4CF;text-decoration:none}
+.fm-pages u:nth-child(4n){width:62%}.fm-pages u:nth-child(7n){width:84%;background:#BDBDB8}.fm-pages u:nth-child(9n){height:12px;width:40%;background:#111;margin-top:10px}
+@keyframes fscroll{to{transform:translateY(-50%)}}
+.fm-pages::after{content:attr(data-n);position:absolute;right:12px;bottom:10px;font-family:var(--mono);font-size:11px;color:#55554F;background:#fff;border-radius:5px;padding:2px 7px}
+.fm-phone{position:absolute;left:250px;top:26px;width:300px;height:520px;border-radius:34px;background:#111;padding:9px;box-shadow:0 40px 90px -20px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.1);transform:translateY(70px) scale(.94);opacity:0;transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .7s}
+.fm-b.on .fm-phone{transform:none;opacity:1}
+.fm-phone>div{height:100%;border-radius:26px;background:#F6F6F4;color:#111;padding:16px 14px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.fm-ph{display:flex;align-items:center;gap:7px;font-weight:600;font-size:14px}
+.fm-ph::before{content:"";width:18px;height:18px;border-radius:5px;background:#111 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-12 -13 69 69'%3E%3Cpath fill='none' stroke='%23D6FF00' stroke-width='12.08' d='M6.04 37.96 L17.06 37.96 L17.06 21.44 L28.07 21.44 L28.07 4.91 L39.09 4.91'/%3E%3C/svg%3E") center/contain no-repeat}
+.fm-q{background:#fff;border:1px solid #DDDDD8;border-radius:11px;padding:11px 12px;font-size:14px;font-weight:500;min-height:42px;display:flex;align-items:center;gap:6px}
+.fm-q i{width:2px;height:16px;background:#111;animation:blink 1s steps(2) infinite}
+.fm-ans{background:#fff;border:1px solid #E4E4DF;border-radius:13px;padding:13px;display:flex;flex-direction:column;gap:9px}
+.fm-ans .r{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.fm-ans .h6{margin:0;font-size:17px;font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.fm-ans small{font-size:11.5px;color:#55554F;display:block;margin-top:3px}
+.fm-ans .g{width:42px;height:42px;border-radius:10px;background:#111;color:#D6FF00;font-size:21px;font-weight:600;display:grid;place-items:center;flex:none}
+.fm-ans .tg{display:flex;gap:5px;flex-wrap:wrap}
+.fm-ans .tg span{font-family:var(--mono);font-size:9.5px;padding:3px 7px;border-radius:5px;background:#C9FF3B}
+.fm-ans .tg span+span{background:#EDEDE8;color:#55554F}
+.fm-ans .tr{display:grid;grid-template-columns:1fr 30px 30px;gap:6px;font-size:11px;padding:7px 6px;border-bottom:1px solid #EFEFEA;color:#55554F;align-items:center}
+.fm-ans .tr b{border:1px solid #E4E4DF;border-radius:5px;text-align:center;color:#111;padding:2px 0}
+.fm-ans .tr.hit{background:#F7FFE0;color:#111;border-radius:7px;box-shadow:inset 3px 0 0 #C9FF3B;border-bottom:0}
+.fm-ans .bt{align-self:flex-start;background:#C9FF3B;border-radius:8px;padding:8px 11px;font-size:11.5px;font-weight:600}
+[data-film="handbook"][data-step="5"] .fm-cam{transform:translate(-360px,-330px) scale(1.9)}
+/* engineer */
+.fm-chips{position:absolute;inset:60px 70px 150px;display:flex;flex-wrap:wrap;gap:12px;align-content:center;justify-content:center}
+.fm-chips span{font-family:var(--mono);font-size:15px;padding:8px 13px;border-radius:8px;border:1px solid #33332F;color:#C9C9C4;background:#151514;opacity:0;transform:translateY(14px) scale(.9);transition:opacity .4s,transform .6s cubic-bezier(.2,1.3,.4,1),border-color .5s,color .5s,background .5s}
+.fm-b.on .fm-chips span{opacity:1;transform:none}
+.fm-chips span.k{border-color:#D6FF00;color:#111;background:#D6FF00}
+.fm-sel{display:flex;gap:6px;flex-wrap:wrap;font-size:10.5px}
+.fm-sel>span{border:1px solid #DDDDD8;border-radius:7px;padding:5px 9px;background:#fff}
+.fm-sel>span.a{background:#111;color:#fff;border-color:#111}
+.fm-tl{position:relative;height:54px;margin:4px 0 2px}
+.fm-tl::before{content:"";position:absolute;left:0;right:0;top:26px;height:3px;border-radius:2px;background:#E4E4DF}
+.fm-tl u{position:absolute;top:14px;height:27px;border-radius:6px;background:#EDEDE8;text-decoration:none;font-size:9px;color:#55554F;display:flex;align-items:center;justify-content:center;font-family:var(--mono)}
+.fm-tl u.now{background:#C9FF3B;color:#111;font-weight:600}
+.fm-tl b{position:absolute;top:0;bottom:0;width:2px;background:#B3261E}
+.fm-tl b::after{content:attr(data-d);position:absolute;top:-13px;left:-22px;font-family:var(--mono);font-size:8.5px;color:#B3261E;white-space:nowrap}
+.fm-refs{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.fm-refs div{border:1px solid #E4E4DF;border-radius:8px;background:#fff;padding:8px 10px;font-size:10.5px;display:flex;flex-direction:column;gap:2px}
+.fm-refs div span{font-family:var(--mono);font-size:9px;color:#55554F}
+.fm-refs div.hit{background:#F7FFE0;border-color:#9CCB00}
+[data-film="engineer"][data-step="5"] .fm-cam{transform:translate(-190px,-235px) scale(1.45)}
+/* core */
+.fm-doc{position:absolute;left:90px;top:96px;width:250px;height:340px;background:#F6F6F4;border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:9px;box-shadow:0 30px 70px -20px rgba(0,0,0,.8)}
+.fm-doc u{display:block;height:6px;border-radius:3px;background:#D4D4CF;text-decoration:none;transition:background .4s}
+.fm-doc u.p{background:#111;height:9px;width:46%;margin-top:8px}
+.fm-doc u.h{transition:background .4s,box-shadow .4s}
+[data-step="2"] .fm-doc u.h,[data-step="3"] .fm-doc u.h{background:#C9FF3B;box-shadow:0 0 14px rgba(214,255,0,.5)}
+.fm-objs{position:absolute;left:410px;top:132px;width:310px;display:flex;flex-direction:column;gap:10px}
+.fm-objs div{border:1px solid #33332F;background:#151514;border-radius:9px;padding:10px 12px;font-family:var(--mono);font-size:12.5px;color:#D6FF00;opacity:0;transform:translateX(-40px);transition:opacity .5s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.fm-objs div small{display:block;font-family:var(--sans);font-size:11.5px;color:#B5B5B0;margin-top:3px}
+[data-step="2"] .fm-objs div,[data-step="3"] .fm-objs div{opacity:1;transform:none}
+.fm-objs div:nth-child(2){transition-delay:.15s}.fm-objs div:nth-child(3){transition-delay:.3s}.fm-objs div:nth-child(4){transition-delay:.45s}
+.fm-arrow{position:absolute;left:352px;top:252px;width:46px;height:2px;background:#D6FF00;opacity:0;transition:opacity .4s}
+.fm-arrow::after{content:"";position:absolute;right:0;top:-5px;width:10px;height:10px;border-top:2px solid #D6FF00;border-right:2px solid #D6FF00;transform:rotate(45deg)}
+[data-step="2"] .fm-arrow,[data-step="3"] .fm-arrow{opacity:1}
+.fm-code{position:absolute;left:90px;top:50px;width:620px;border-radius:14px;background:#151514;border:1px solid #33332F;padding:18px 20px;font-family:var(--mono);font-size:14px;line-height:1.6;color:#B5B5B0;box-shadow:0 40px 90px -20px rgba(0,0,0,.85);transform:translateY(60px) scale(.95);opacity:0;transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .7s}
+.fm-b.on .fm-code{transform:none;opacity:1}
+.fm-code .rq{color:#F4F4F1;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.fm-code .rq em{font-style:normal;background:#D6FF00;color:#111;border-radius:5px;padding:1px 7px;font-size:12px;font-weight:600}
+.fm-code pre{margin:0;font:inherit;white-space:pre-wrap}
+.fm-code pre b{color:#F4F4F1;font-weight:500}.fm-code pre i{color:#D6FF00;font-style:normal}
+.fm-code .st{margin-top:8px;font-size:12px;display:flex;gap:12px}.fm-code .st span:first-child{color:#D6FF00}
+.fm-hist{margin-top:14px;border-top:1px solid #33332F;padding-top:12px;display:flex;flex-direction:column;gap:7px;font-family:var(--sans);font-size:13px}
+.fm-hist div{display:grid;grid-template-columns:96px 1fr auto;gap:10px;align-items:center;color:#C9C9C4}
+.fm-hist div span:first-child{font-family:var(--mono);font-size:12px;color:#8F8F8A}
+.fm-hist em{font-style:normal;font-family:var(--mono);font-size:11px;border-radius:999px;padding:1px 8px;background:#2A2A27}
+.fm-hist div.hit em{background:#D6FF00;color:#111}
+[data-film="core"][data-step="6"] .fm-cam{transform:translate(-90px,-250px) scale(1.25)}
+.panel .film{width:min(100%,693px);justify-self:end;background:transparent;border-radius:12px}
+.panel .fm-cap{background:linear-gradient(transparent,rgba(17,17,17,.9) 52%,#111)}
+@media (max-width:860px){.panel .film{width:100%}}
+.fm-prog{display:none}
 .features>.wrap{width:100%}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -901,78 +1058,142 @@ footer .slogan{color:#55554F}
 
     <div class="panel on" id="p-handbook" role="tabpanel">
       <div class="copy"><div class="wm"><i></i><small>Ellavate</small>Handbook</div><h3>För teknikern i hallen.</h3><p>Bil, MC och släp. Svar med paragraf, grund för bedömning och sidan i föreskriften. Era egna underlag per fabrikat och modell inlästa.</p></div>
-      <div class="scene" data-scene="handbook">
-  <div class="sc-top"><span class="sc-plate">ABC 123</span><span>Volvo V60 · 2019</span><span class="sc-mod">VEHICLE</span></div>
-  <div class="sc-search"><span class="sc-typed" data-sv="bromsskiva sliten" data-en="brake disc worn"></span><span class="sc-cur"></span><b>↵</b></div>
-  <div class="sc-card a1">
-    <div class="sc-row"><div><div class="sc-h">Bromstrumma/-skiva</div><div class="sc-sub">påtagligt skadad eller sliten</div></div><div class="sc-grade a2">2</div></div>
-    <div class="sc-tags a3"><span>TSFS 2017:54</span><span class="alt">Bilaga 1 · 4.2.4.2</span></div>
-    <div class="sc-table">
-      <div class="sc-tr a4 hit"><span>Påtagligt skadad eller sliten</span><b>2</b><b>2</b></div>
-      <div class="sc-tr a5"><span>Saknas eller är lös</span><b>3</b><b>3</b></div>
-      <div class="sc-tr a6"><span>Sprucken</span><b>3</b><b>3</b></div>
-    </div>
-    <div class="sc-open a7">Öppna sida 47–50 →</div>
-    <div class="sc-new a7"><i></i>Nytt i föreskriften · punkten ändrad 2026-01-05</div>
-  </div>
-</div>
+      <div class="film" data-film="handbook" data-dur="19.4" data-steps="2.8,6.6,8.0,10.2,12.6">
+<div class="fm-stage">
+<div class="fm-b" data-at="0" data-end="2.9"><div class="fm-big"><b style="font-size:52px">Varje bedömning har en rad i föreskriften.</b></div></div>
+  <div class="fm-b" data-at="2.8" data-end="6.7"><div class="fm-pages" data-n="s. 47 / 412"><div><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u></div></div>
+    <div class="fm-cap" data-at="3.2" data-end="4.9">Men den ska hittas.</div><div class="fm-cap" data-at="4.9" data-end="6.7">Mitt i en besiktning.</div></div>
+<div class="fm-b" data-at="6.6" data-end="8.1"><div class="fm-big"><b>Fråga i stället.</b></div></div>
+  <div class="fm-b" data-at="8.0" data-end="15.6"><div class="fm-cam">
+    <div class="fm-phone"><div>
+      <div class="fm-ph">Station Nord</div>
+      <div class="fm-q"><span class="fm-type" data-sv="bromsskiva sliten" data-en="brake disc worn" data-at="8.8" data-len="1.2"></span><i></i></div>
+      <div class="fm-ans fm-x" data-at="10.2" data-end="99">
+        <div class="r"><div><div class="h6">Bromstrumma/-skiva</div><small>påtagligt skadad eller sliten</small></div><div class="g">2</div></div>
+        <div class="tg"><span>TSFS 2017:54</span><span>Bilaga 1 · 4.2.4.2</span></div>
+        <div class="tr hit"><span>Påtagligt skadad eller sliten</span><b>2</b><b>2</b></div>
+        <div class="tr"><span>Saknas eller är lös</span><b>3</b><b>3</b></div>
+        <div class="tr"><span>Sprucken</span><b>3</b><b>3</b></div>
+        <div class="bt">Öppna sida 47–50 →</div>
+      </div>
+    </div></div></div>
+    <div class="fm-cap" data-at="10.5" data-end="12.6">Rätt rad. För rätt fordon.</div><div class="fm-cap" data-at="13.0" data-end="15.5">Ordagrant. Med sidan det står på.</div></div>
+<div class="fm-b" data-at="15.6" data-end="17.6"><div class="fm-big"><b style="font-size:50px">Så att du kan stå för varje beslut.</b></div></div><div class="fm-b" data-at="17.6" data-end="19.4"><div class="fm-big"><b class="lime">Handbook.</b></div></div>
+  <i class="fm-prog"></i>
+</div></div>
     </div>
 
     <div class="panel" id="p-engineer" role="tabpanel">
       <div class="copy"><div class="wm"><i></i><small>Ellavate</small>Engineer</div><h3>För ingenjören.</h3><p>Registreringsbesiktning, enskilt godkännande, intyg. Alla författningar som styr fordonet, med hänvisningarna mellan dem synliga.</p></div>
-      <div class="scene" data-scene="engineer">
-  <div class="sc-top"><span class="sc-plate">KLM 456</span><span>Brenderup 2260 · 2014</span><span class="sc-mod">VEHICLE</span></div>
-  <div class="sc-search"><span class="sc-typed" data-sv="registreringsbesiktning ändrad totalvikt" data-en="registration inspection changed gross weight"></span><span class="sc-cur"></span><b>↵</b></div>
-  <div class="sc-card a1">
-    <div class="sc-row"><div><div class="sc-h">Ändrad totalvikt på släpvagn</div><div class="sc-sub">registreringsbesiktning krävs</div></div><div class="sc-grade a2">§</div></div>
-    <div class="sc-refs">
-      <div class="sc-ref a3 hit"><span class="m">FF 2009:211 · 6 kap. 4 §</span><span>Fordonsförordningen</span></div>
-      <div class="sc-ref a4"><span class="m">TSFS 2010:87 · 3 kap.</span><span>Registreringsbesiktning</span></div>
-      <div class="sc-ref a5"><span class="m">VVFS 2003:22 · 11 kap.</span><span>Tekniska krav, släp</span></div>
-      <div class="sc-ref a6"><span class="m">2014/45/EU · Annex I</span><span>Direktivet</span></div>
-    </div>
-    <div class="sc-new a7"><i></i>Fyra författningar · hänvisningskedjan verifierad</div>
-  </div>
-</div>
+      <div class="film" data-film="engineer" data-dur="19.6" data-steps="3.0,5.4,7.6,9.0,12.6">
+<div class="fm-stage">
+<div class="fm-b" data-at="0" data-end="3.1"><div class="fm-big"><b style="font-size:54px">En ombyggd bil från 2011.</b><span>Vilka krav gällde när den togs i trafik?</span></div></div>
+  <div class="fm-b" data-at="3.0" data-end="7.7"><div class="fm-chips" data-keys="1"><span style="transition-delay:0ms" class="k">TSFS 2010:87</span><span style="transition-delay:70ms" class="k">VVFS 2003:22</span><span style="transition-delay:140ms">Fordonslag (2002:574)</span><span style="transition-delay:210ms">TSFS 2016:22</span><span style="transition-delay:280ms" class="k">Fordonsförordning (2009:211)</span><span style="transition-delay:350ms">VVFS 2003:17</span><span style="transition-delay:420ms">2014/45/EU</span><span style="transition-delay:490ms">TSFS 2013:63</span><span style="transition-delay:560ms">VVFS 2003:19</span><span style="transition-delay:630ms">TSFS 2019:132</span><span style="transition-delay:700ms">TSFS 2017:54</span><span style="transition-delay:770ms">TSFS 2021:11</span><span style="transition-delay:840ms">VVFS 2003:18</span><span style="transition-delay:910ms">EUR-Lex</span></div>
+    <div class="fm-cap" data-at="3.6" data-end="5.4">Fjorton källor.</div><div class="fm-cap" data-at="5.4" data-end="7.7">Tre av dem gäller den här bilen.</div></div>
+  <div class="fm-b" data-at="7.6" data-end="16.2"><div class="fm-cam">
+    <div class="fm-win">
+      <div class="fm-wbar"><u></u><u></u><u></u><span>engineer.station-nord.se</span></div>
+      <div class="fm-wbody">
+        <div class="fm-wside"><b>Engineer</b><em class="a">Sök</em><em>Källor</em><em>Ändringar</em></div>
+        <div class="fm-wmain">
+          <div class="fm-sel"><span class="a">Registreringsbesiktning</span><span class="a">M1</span><span class="a">2011-05</span><span>krav på belysning</span></div>
+          <div class="fm-wh fm-x" data-at="9.0" data-end="99">Belysning · M1 · registrerad 2011-05</div>
+          <div class="fm-tl fm-x" data-at="9.4" data-end="99"><u style="left:0;width:30%">äldre lydelse</u><u class="now" style="left:31%;width:34%">gällde 2011-05</u><u style="left:66%;width:34%">gäller i dag</u><b style="left:44%" data-d="2011-05"></b></div>
+          <div class="fm-refs fm-x" data-at="9.9" data-end="99">
+            <div class="hit"><b>VVFS 2003:22</b><span>11 kap. · lydelsen vid registreringen</span></div>
+            <div><b>TSFS 2010:87</b><span>3 kap. · registreringsbesiktning</span></div>
+            <div><b>Fordonsförordningen</b><span>2009:211 · 6 kap. 4 §</span></div>
+            <div><b>EU-rätten</b><span>2007/46/EG</span></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <div class="fm-cap" data-at="10.2" data-end="12.6">Kraven som gällde då.</div><div class="fm-cap" data-at="13.0" data-end="16.1">Allt som reglerar samma sak.</div></div>
+<div class="fm-b" data-at="16.2" data-end="17.9"><div class="fm-big"><b>Rätt krav.</b></div></div><div class="fm-b" data-at="17.9" data-end="19.6"><div class="fm-big"><b class="lime">För rätt datum.</b></div></div>
+  <i class="fm-prog"></i>
+</div></div>
     </div>
 
     <div class="panel" id="p-audit" role="tabpanel">
       <div class="copy"><div class="wm"><i></i><small>Ellavate</small>Audit</div><h3>Granskar protokollet innan revisionen gör det.</h3><p>Fel anmärkningskod, saknad bedömning, orimlig kombination. Flaggas innan protokollet lämnar stationen.</p></div>
-      <div class="scene" data-scene="audit">
-  <div class="sc-top"><span class="sc-plate">MNO 789</span><span>VW Transporter · 2016</span><span class="sc-mod">AUDIT</span></div>
-  <div class="sc-scan"><div class="sc-scanbar"><i></i></div><span class="sc-typed" data-sv="Granskar protokoll 14:31 mot TSFS 2017:54" data-en="Checking report 14:31 against TSFS 2017:54"></span></div>
-  <div class="sc-card">
-    <div class="sc-chk a1 ok"><i></i>Anmärkningskoder giltiga<em>9/9</em></div>
-    <div class="sc-chk a2 ok"><i></i>Kombinationer rimliga<em>OK</em></div>
-    <div class="sc-chk a3 ok"><i></i>Körförbud korrekt satta<em>OK</em></div>
-    <div class="sc-chk a4 bad"><i></i>Bedömning på varje kod<em>1 saknas</em></div>
-    <div class="sc-find2 a5"><b>6.1.3 Bromsskiva påtagligt sliten saknar bedömning</b>TSFS 2017:54 bilaga 1 kräver bedömning 2 eller 3. Teknikern får frågan innan signering, inte revisorn efteråt.</div>
-    <div class="sc-stop a6"><strong>Stoppat innan signering</strong><span>38 s</span></div>
+      <div class="film" data-film="audit" data-dur="21.4" data-steps="2.4,3.6,5.2,6.8,9.2,10.2,12.4,14.8" data-count="10.2">
+<div class="fm-stage">
+  <div class="fm-b" data-at="0" data-end="2.5"><div class="fm-big"><b>80 protokoll.</b><span>Varje dag.</span></div></div>
+  <div class="fm-b" data-at="2.4" data-end="8.1"><div class="fm-grid"><i></i><i></i><i></i><i class="s"></i><i></i><i class="e"></i><i></i><i></i><i></i><i></i><i></i><i class="e"></i><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i></i><i class="e"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="s e"></i><i></i><i></i><i></i><i></i><i></i><i class="e"></i><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i></i><i class="e"></i><i></i><i></i><i></i><i class="s"></i><i></i><i></i><i class="e"></i><i></i><i></i><i></i><i></i><i></i><i class="e"></i><i></i><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i class="s"></i><i></i><i></i><i></i><i class="e"></i><i></i><i></i><i></i><i></i><i class="e"></i><i></i><i></i><i></i><i></i><i class="e"></i><i></i><i></i><i class="s"></i></div>
+    <div class="fm-cap" data-at="3.6" data-end="5.2">Stickprovet läser åtta.</div>
+    <div class="fm-cap" data-at="5.2" data-end="6.8">Det hittar ett av elva fel.</div>
+    <div class="fm-cap" data-at="6.8" data-end="8.1">Resten läses aldrig.</div>
   </div>
-  <div class="sc-new a7"><i></i>I dag: 14 protokoll granskade · 2 stoppade · 0 till revisionen</div>
-</div>
+  <div class="fm-b" data-at="8.1" data-end="9.4"><div class="fm-big"><b>Tills nu.</b></div></div>
+  <div class="fm-b" data-at="9.2" data-end="17.5"><div class="fm-cam">
+    <div class="fm-win">
+      <div class="fm-wbar"><u></u><u></u><u></u><span>audit.station-nord.se</span></div>
+      <div class="fm-wbody">
+        <div class="fm-wside"><b>Audit</b><em class="a">Översikt</em><em>Protokoll</em><em>Regelverk</em></div>
+        <div class="fm-wmain">
+          <div class="fm-wh">11 protokoll behöver åtgärdas först</div>
+          <div class="fm-wsub">80 protokoll lästa · 36 med avvikelser · 44 utan anmärkning</div>
+          <div class="fm-scan"><i></i></div>
+          <div class="fm-stats"><div class="k"><b data-n="11">0</b>Kritiska</div><div><b data-n="15">0</b>Viktiga</div><div><b data-n="10">0</b>Formella</div><div><b data-n="44">0</b>Utan anmärkning</div></div>
+          <div class="fm-rows">
+            <div class="hit"><span>XNX 379</span><span>Godkänt trots brist med bedömning 2</span><em>Kritisk</em></div>
+            <div><span>TWL 114</span><span>Körförbud saknas vid bedömning 3</span><em>Kritisk</em></div>
+            <div><span>SDH 602</span><span>Mätvärde utanför gräns, ingen anmärkning</span><em>Kritisk</em></div>
+            <div><span>KLM 456</span><span>Efterkontroll satt utan brist</span><em class="v">Viktig</em></div>
+          </div>
+          <div class="fm-card"><div class="h6"><span>Godkänt trots brist med bedömning 2</span><em>Kritisk</em></div>
+            <dl><dt>Vad vi ser</dt><dd>Utfallet är Godkänd, men en brist har bedömning 2.</dd>
+            <dt>I protokollet</dt><dd>Skyltlykta, bedömning 2. Utfall: Godkänd.</dd>
+            <dt>Varför</dt><dd>En tvåa ger föreläggande. Utfallet motsäger bristen.</dd>
+            <dt>Förslag</dt><dd>Rätta utfallet innan protokollet signeras.</dd></dl></div>
+          <div class="fm-paper"><b>Protokoll · Kontrollbesiktning</b>
+            <p><span>Reg.nr</span><span>XNX 379</span></p><p><span>Fordon</span><span>VW Golf · 2011</span></p><p><span>Mätarställning</span><span>202 074 km</span></p>
+            <b style="margin-top:6px">Brister på fordonet</b>
+            <p class="mk"><span>Skyltlykta</span><span>bedömning 2</span></p>
+            <b style="margin-top:6px">Besiktningsresultat</b>
+            <p><span>Utfall</span><span>Godkänd</span></p></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="fm-cap" data-at="10.4" data-end="12.4">Alla 80. Värst först.</div>
+    <div class="fm-cap" data-at="12.9" data-end="14.8">Varje avvikelse förklarad.</div>
+    <div class="fm-cap" data-at="15.3" data-end="17.4">Med raden i originalet.</div>
+  </div>
+  <div class="fm-b" data-at="17.5" data-end="19.4"><div class="fm-big"><b style="font-size:50px">Fjorton regler. Ingen gissning.</b></div></div>
+  <div class="fm-b" data-at="19.4" data-end="21.4"><div class="fm-big"><b class="lime">Före revisionen.</b></div></div>
+  <i class="fm-prog"></i>
+</div></div>
     </div>
 
     <div class="panel" id="p-core" role="tabpanel">
       <div class="copy"><div class="wm"><i></i><small>Ellavate</small>Core</div><h3>Alla har föreskrifterna. Ingen har dem som data.</h3><p>Varje punkt i föreskriften som ett eget objekt, med fast id, versionshistorik och hänvisningar. Därför gissar Handbook aldrig. Bygger ni egna system får ni kärnan som API.</p></div>
-      <div class="scene" data-scene="core">
-  <div class="sc-top"><span class="m" style="color:#C9C9C4">se.tsfs-2017-54.b1.5.2.3</span><span class="sc-mod">v14</span></div>
-  <div class="sc-code"><div class="sc-req"><span class="sc-typed m" data-sv="GET /v1/rules/se/tsfs-2017-54/b1-5.2.3" data-en="GET /v1/rules/se/tsfs-2017-54/b1-5.2.3"></span><span class="sc-cur"></span></div>
-    <pre class="a1">{
+      <div class="film" data-film="core" data-dur="20.2" data-steps="2.2,5.4,7.8,9.6,10.8,13.6">
+<div class="fm-stage">
+<div class="fm-b" data-at="0" data-end="2.3"><div class="fm-big"><b style="font-size:56px">Alla har föreskrifterna.</b></div></div><div class="fm-b" data-at="2.2" data-end="4.4"><div class="fm-big"><b style="font-size:56px">Ingen har dem som data.</b></div></div>
+  <div class="fm-b" data-at="4.4" data-end="9.7"><div class="fm-doc"><u class="p"></u><u></u><u></u><u class="h"></u><u class="h"></u><u class="h"></u><u></u><u></u><u></u><u class="p"></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u></div><i class="fm-arrow"></i>
+    <div class="fm-objs"><div>se.tsfs-2017-54.b1.5.2.3<small>Däck – mönsterdjup</small></div><div>se.tsfs-2017-54.b1.4.2.4.2<small>Bromstrumma/-skiva</small></div><div>se.tsfs-2017-54.b1.9.1.7<small>Kulhandske</small></div></div>
+    <div class="fm-cap" data-at="5.6" data-end="7.8">Varje punkt. Ett eget objekt.</div><div class="fm-cap" data-at="7.8" data-end="9.7">Med fast id.</div></div>
+  <div class="fm-b" data-at="9.6" data-end="16.8"><div class="fm-cam">
+    <div class="fm-code">
+      <div class="rq"><em>GET</em><span class="fm-type" data-sv="/v1/rules/se/tsfs-2017-54/b1-5.2.3" data-en="/v1/rules/se/tsfs-2017-54/b1-5.2.3" data-at="10.0" data-len="0.8"></span></div>
+      <pre class="fm-x" data-at="10.8" data-end="99">{
   <b>"id"</b>: <i>"se.tsfs-2017-54.b1.5.2.3"</i>,
   <b>"title"</b>: <i>"Däck – mönsterdjup"</i>,
   <b>"limit"</b>: { <b>"mm"</b>: 1.6, <b>"winter_mm"</b>: 3.0 },
   <b>"eu"</b>: <i>"2014/45/EU · I · 5.2.3"</i>,
   <b>"version"</b>: <i>"2025-07-01"</i>
 }</pre>
-    <div class="sc-status a2"><span>200</span><span>41 ms</span></div>
-  </div>
-  <div class="sc-card a3">
-    <div class="sc-hist hit"><span class="m">2025-07-01</span><span>Utvidgad till lätt lastbil och lätt buss</span><em>v14</em></div>
-    <div class="sc-hist a4"><span class="m">2023-01-01</span><span>Vinterdäckskravet förtydligat</span><em>v13</em></div>
-    <div class="sc-hist a5"><span class="m">2017-07-01</span><span>Punkten införd</span><em>v1</em></div>
-  </div>
-</div>
+      <div class="st fm-x" data-at="11.3" data-end="99"><span>200</span><span>41 ms</span></div>
+      <div class="fm-hist fm-x" data-at="11.8" data-end="99">
+        <div class="hit"><span>2025-07-01</span><span>Utvidgad till lätt lastbil och lätt buss</span><em>v14</em></div>
+        <div><span>2023-01-01</span><span>Vinterdäckskravet förtydligat</span><em>v13</em></div>
+        <div><span>2017-07-01</span><span>Punkten införd</span><em>v1</em></div>
+      </div>
+    </div></div>
+    <div class="fm-cap" data-at="11.4" data-end="13.6">Ett anrop. Ett svar.</div><div class="fm-cap" data-at="14.0" data-end="16.7">Varje ändring, daterad.</div></div>
+<div class="fm-b" data-at="16.8" data-end="18.5"><div class="fm-big"><b>En kärna.</b></div></div><div class="fm-b" data-at="18.5" data-end="20.2"><div class="fm-big"><b class="lime">Fyra produkter.</b></div></div>
+  <i class="fm-prog"></i>
+</div></div>
     </div>
   </div>
 </section>
@@ -1200,9 +1421,26 @@ footer .slogan{color:#55554F}
   document.addEventListener('pointermove',function(e){var t=e.target.closest&&e.target.closest('.tab,.mrow');if(!t)return;var r=t.getBoundingClientRect();t.style.setProperty('--mx',(e.clientX-r.left)+'px');t.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true});
   (function(){var P=[].slice.call(document.querySelectorAll('.panel')),root=document.querySelector('.products');if(!P.length||!root)return;
     function eq(){root.style.removeProperty('--sh');root.style.removeProperty('--ch');if(window.innerWidth>860)return;var on=root.querySelector('.panel.on')||P[0],w=on.getBoundingClientRect().width,en=document.body.classList.contains('en'),sh=0,ch=0;
-      P.forEach(function(p){var act=p===on;if(!act)p.style.cssText='display:flex;visibility:hidden;position:absolute;width:'+w+'px';var sc=p.querySelector('.scene'),cp=p.querySelector('.copy'),ty=p.querySelector('.sc-typed'),old=ty?ty.textContent:'';if(ty)ty.textContent=ty.getAttribute(en?'data-en':'data-sv')||old;sc.style.minHeight='0';cp.style.minHeight='0';sh=Math.max(sh,sc.getBoundingClientRect().height);ch=Math.max(ch,cp.getBoundingClientRect().height);sc.style.minHeight='';cp.style.minHeight='';if(ty)ty.textContent=old;if(!act)p.style.cssText=''});
+      P.forEach(function(p){var act=p===on;if(!act)p.style.cssText='display:flex;visibility:hidden;position:absolute;width:'+w+'px';var cp=p.querySelector('.copy');cp.style.minHeight='0';ch=Math.max(ch,cp.getBoundingClientRect().height);cp.style.minHeight='';if(!act)p.style.cssText=''});
       root.style.setProperty('--sh',Math.ceil(sh)+'px');root.style.setProperty('--ch',Math.ceil(ch)+'px')}
     eq();var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(eq,150)});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(eq);window.addEventListener('load',eq)})();
+  (function(){var films=[].slice.call(document.querySelectorAll('.film'));if(!films.length)return;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  films.forEach(function(f){var dur=parseFloat(f.getAttribute('data-dur')),steps=(f.getAttribute('data-steps')||'').split(',').map(parseFloat),timed=[].slice.call(f.querySelectorAll('[data-at]')),nums=[].slice.call(f.querySelectorAll('b[data-n]')),types=[].slice.call(f.querySelectorAll('.fm-type')),prog=f.querySelector('.fm-prog'),t0=null,raf=null,vis=false,last=-1;
+    function frame(t){var st=0;for(var i=0;i<steps.length;i++)if(t>=steps[i])st=i+1;if(st!==last){f.setAttribute('data-step',st);last=st}
+      timed.forEach(function(e){var on=t>=+e.getAttribute('data-at')&&t<+e.getAttribute('data-end');if(on!==e.classList.contains('on'))e.classList.toggle('on',on)});
+      nums.forEach(function(n){var a=+(f.getAttribute('data-count')||0),k=Math.max(0,Math.min(1,(t-a)/.9));n.textContent=Math.round(+n.getAttribute('data-n')*(1-Math.pow(1-k,3)))});
+      types.forEach(function(e){var a=+e.getAttribute('data-at'),l=+e.getAttribute('data-len'),s=e.getAttribute(document.body.classList.contains('en')?'data-en':'data-sv'),k=Math.max(0,Math.min(1,(t-a)/l)),n=Math.round(s.length*k),v=s.slice(0,n);if(e.textContent!==v)e.textContent=v});
+      if(prog)prog.style.width=(t/dur*100)+'%'}
+    f._seek=frame;
+    function tick(now){if(t0===null)t0=now;var t=((now-t0)/1000)%dur;frame(t);raf=requestAnimationFrame(tick)}
+    function start(){if(raf||reduce)return;t0=null;raf=requestAnimationFrame(tick)}
+    function stop(){if(raf){cancelAnimationFrame(raf);raf=null}}
+    if(reduce){frame(parseFloat(f.getAttribute('data-still')||'11.5'));return}
+    if('IntersectionObserver' in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis&&f.offsetParent!==null)start();else stop()},{threshold:.25}).observe(f)}else start();
+    f._start=start;f._stop=stop});
+  if(!(window.CSS&&CSS.supports&&CSS.supports('width','1cqw'))){var fit=function(){films.forEach(function(f){f.style.setProperty('--fk',f.clientWidth/800)})};fit();window.addEventListener('resize',fit)}
+})();
   var cf=document.getElementById('cf');
   cf.addEventListener('submit',function(e){ e.preventDefault();
     var ok=document.getElementById('f-ok'), er=document.getElementById('f-err'), m=document.getElementById('f-mail');
