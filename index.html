@@ -568,6 +568,52 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media (max-width:330px){.sc-top{font-size:11px;gap:6px}}
 nav .logo{display:flex;align-items:center;min-height:44px}
 @media (min-width:861px) and (max-width:1100px){.scene{gap:8px;padding:14px;font-size:13px}.scene .sc-card{padding:12px;gap:8px}}
+.spec{margin:8px 0 0;display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.spec>div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid var(--line2);align-items:baseline}
+.spec dt{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--faint)}
+.spec dd{margin:0;font-size:15.5px;color:var(--fg);overflow-wrap:anywhere}
+.wl{--a:#B84241;--at:#fff;--sb:#F3EEE8;--sf:#2B2B2B;display:flex;flex-direction:column;gap:14px;min-width:0}
+.wl *{min-width:0}
+.wl-pick{display:flex;gap:8px;flex-wrap:wrap}
+.wl-pick button{font:inherit;font-size:13.5px;font-weight:500;display:inline-flex;align-items:center;gap:8px;padding:0 14px;min-height:40px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--muted);cursor:pointer;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+.wl-pick button i{width:10px;height:10px;border-radius:3px;flex:none}
+.wl-pick button[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.wl-win{border-radius:16px;overflow:hidden;background:#F6F6F4;color:#111;border:1px solid var(--line2);box-shadow:var(--glow)}
+.wl-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#ECECE8;border-bottom:1px solid #DDDDD8}
+.wl-bar i{width:9px;height:9px;border-radius:50%;background:#CFCFCA;flex:none}
+.wl-url{margin-left:8px;flex:1;font-family:var(--mono);font-size:11.5px;color:#5C5C58;background:#fff;border-radius:7px;padding:5px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wl-app{display:grid;grid-template-columns:168px minmax(0,1fr);min-height:292px}
+.wl-side{background:var(--sb);color:var(--sf);padding:16px 14px;display:flex;flex-direction:column;gap:16px;transition:background .35s,color .35s}
+.wl-logo{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14.5px;letter-spacing:-.01em;line-height:1.15}
+.wl-mark{width:26px;height:26px;border-radius:8px;background:var(--a);color:var(--at);display:grid;place-items:center;font-size:14px;font-weight:700;flex:none;transition:background .35s}
+.wl-docs{display:flex;flex-direction:column;gap:2px;font-size:13px}
+.wl-docs span{padding:7px 8px;border-radius:7px;opacity:.75;overflow-wrap:anywhere}
+.wl-docs span:first-child{background:color-mix(in srgb,var(--sf) 10%,transparent);opacity:1;font-weight:500}
+.wl-main{padding:16px;display:flex;flex-direction:column;gap:12px}
+.wl-q{display:flex;align-items:center;gap:9px;padding:11px 12px;border-radius:12px;background:#fff;border:1px solid #DDDDD8;font-size:14.5px;font-weight:500}
+.wl-q svg{width:16px;height:16px;fill:none;stroke:#8A8A85;stroke-width:2;stroke-linecap:round;flex:none}
+.wl-card{background:#fff;border:1px solid #E4E4DF;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;flex:1}
+.wl-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.wl-h{font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.wl-sub{color:#5C5C58;font-size:13.5px;margin-top:4px}
+.wl-grade{min-width:44px;height:44px;padding:0 12px;border-radius:11px;background:var(--a);color:var(--at);display:grid;place-items:center;font-size:20px;font-weight:600;flex:none;white-space:nowrap;transition:background .35s}
+.wl-grade.w{font-size:13.5px}
+.wl-src{font-family:var(--mono);font-size:11.5px;color:#6B6B66;overflow-wrap:anywhere}
+.wl-btn{align-self:flex-start;margin-top:auto;padding:10px 14px;border-radius:10px;background:var(--a);color:var(--at);font-weight:600;font-size:13.5px;transition:background .35s}
+.wl-main>*,.wl-side>*{transition:opacity .25s}
+.wl.sw .wl-main>*,.wl.sw .wl-side>*,.wl.sw .wl-bars{opacity:0}
+.wl-stats{border:1px solid var(--line2);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--card)}
+.wl-sh{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.wl-sh em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);border:1px solid var(--line2);border-radius:999px;padding:2px 8px}
+.wl-bars{display:flex;flex-direction:column;gap:8px;transition:opacity .25s}
+.wl-bars div{display:grid;grid-template-columns:92px minmax(0,1fr) 34px;gap:10px;align-items:center;font-size:13px;color:var(--fg)}
+.wl-bars u{display:block;height:6px;border-radius:3px;background:var(--line2);text-decoration:none;overflow:hidden}
+.wl-bars u b{display:block;height:100%;border-radius:3px;background:var(--lime);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.wl-bars span:last-child{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+@media (max-width:560px){.wl-app{grid-template-columns:1fr}.wl-side{flex-direction:row;align-items:center;padding:12px 14px}.wl-docs{display:none}.wl-main{padding:12px}.spec>div{grid-template-columns:86px minmax(0,1fr);gap:12px}.wl-bars div{grid-template-columns:78px minmax(0,1fr) 30px}}
+@media (prefers-reduced-motion:reduce){.wl *{transition:none!important}}
+@media (max-width:560px){.wl-pick{gap:6px}.wl-pick button{font-size:12.5px;padding:0 10px;gap:6px}}
+@media (max-width:340px){.wl-url{font-size:10px;padding:5px 7px;margin-left:4px}}
 .features>.wrap{width:100%}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -749,19 +795,35 @@ nav .logo{display:flex;align-items:center;min-height:44px}
   <div class="wrap portal2">
     <div class="copy">
       <h2><span class="sv">Er handbok. Vår motor.</span><span class="en-t">Your handbook. Our engine.</span></h2>
-      <p><span class="sv">Egen logga, egna färger, egen adress. Det syns tydligt att det är ni som står bakom handboken, inte vi. Era underlag per fabrikat och modell läses in och förblir era. Varje station har sin egen länk och statistik.</span><span class="en-t">Your logo, your colours, your address. It is clearly your company behind the handbook, not ours. Your make-and-model material is loaded and stays yours. Every station gets its own link and statistics.</span></p>
-      <ul class="pl">
-        <li><span class="sv">I gång på en dag, inget att installera</span><span class="en-t">Live in a day, nothing to install</span></li>
-        <li><span class="sv">Statistik per station, team eller person</span><span class="en-t">Statistics per station, team or person</span></li>
-        <li><span class="sv">Svenska, norska, danska, finska</span><span class="en-t">Swedish, Norwegian, Danish, Finnish</span></li>
-        <li><span class="sv">Egen plattform, egna utvecklare. Behöver ni något bygger vi det.</span><span class="en-t">Our own platform, our own engineers. If you need something, we build it.</span></li>
-      </ul>
+      <p><span class="sv">Teknikerna ser ert företag, inte oss. Samma motor bakom, er logga, era färger och er adress framför.</span><span class="en-t">Your technicians see your company, not us. The same engine behind it, your logo, colours and address in front.</span></p>
+      <dl class="spec">
+        <div><dt><span class="sv">Adress</span><span class="en-t">Address</span></dt><dd><span class="sv">handboken.ertföretag.se</span><span class="en-t">handbook.yourcompany.com</span></dd></div>
+        <div><dt><span class="sv">Underlag</span><span class="en-t">Material</span></dt><dd><span class="sv">Era egna, per fabrikat och modell. Förblir era.</span><span class="en-t">Your own, per make and model. Stays yours.</span></dd></div>
+        <div><dt><span class="sv">Statistik</span><span class="en-t">Statistics</span></dt><dd><span class="sv">Per station, team eller person</span><span class="en-t">Per station, team or person</span></dd></div>
+        <div><dt><span class="sv">Språk</span><span class="en-t">Languages</span></dt><dd><span class="sv">Svenska, norska, danska, finska</span><span class="en-t">Swedish, Norwegian, Danish, Finnish</span></dd></div>
+        <div><dt><span class="sv">Start</span><span class="en-t">Go-live</span></dt><dd><span class="sv">I gång på en dag, inget att installera</span><span class="en-t">Live in a day, nothing to install</span></dd></div>
+      </dl>
     </div>
-    <div class="tgrid" aria-label="Fyra kundportaler, exempel">
-      <div class="tc t1"><div class="th"><i></i><b>Nordbesiktning</b><span>handboken.nordbesiktning.se</span></div><div class="tq"><span class="sv">Får en MC ha gul lykta fram?</span><span class="en-t">Can a motorcycle have a yellow headlamp?</span></div><div class="ta"><strong><span class="sv">Nej</span><span class="en-t">No</span></strong><em>TSFS 2017:54 · 4.1.1</em></div></div>
-      <div class="tc t2"><div class="th"><i></i><b>Kyst Kontroll AS</b><span>handboka.kystkontroll.no</span></div><div class="tq">Må tilhenger ha trekantreflekser?</div><div class="ta"><strong>Ja</strong><em>FOR-2009-10-05 · 4.1.4</em></div></div>
-      <div class="tc t3"><div class="th"><i></i><b>Dalabesiktning</b><span>handboken.dalabesiktning.se</span></div><div class="tq"><span class="sv">Spricka i vindrutan, torkarfältet?</span><span class="en-t">Crack in the windscreen, wiper area?</span></div><div class="ta"><strong><span class="sv">Anmärkning</span><span class="en-t">Defect</span></strong><em>TSFS 2017:54 · 3.2</em></div></div>
-      <div class="tc t4"><div class="th"><i></i><b>Syn &amp; Kontrol</b><span>haandbog.synkontrol.dk</span></div><div class="tq">Skal trailer have trekantreflekser?</div><div class="ta"><strong>Ja</strong><em>BEK nr 2210 · 4.1.4</em></div></div>
+    <div class="wl" id="wl">
+      <div class="wl-pick" role="tablist" aria-label="Exempel på kundportaler"></div>
+      <div class="wl-win">
+        <div class="wl-bar"><i></i><i></i><i></i><span class="wl-url"></span></div>
+        <div class="wl-app">
+          <aside class="wl-side">
+            <div class="wl-logo"><b class="wl-mark"></b><span class="wl-name"></span></div>
+            <div class="wl-docs"></div>
+          </aside>
+          <div class="wl-main">
+            <div class="wl-q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span class="wl-query"></span></div>
+            <div class="wl-card">
+              <div class="wl-row"><div><div class="wl-h"></div><div class="wl-sub"></div></div><div class="wl-grade"></div></div>
+              <div class="wl-src"></div>
+              <div class="wl-btn"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wl-stats"><div class="wl-sh"><span class="wl-st"></span><em>Admin</em></div><div class="wl-bars"></div></div>
     </div>
   </div>
   </div>
@@ -868,6 +930,34 @@ nav .logo{display:flex;align-items:center;min-height:44px}
   document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){var sc=activeScene(); if(sc) playScene(sc);});});
   sv.addEventListener('click',function(){var sc=activeScene(); if(sc) playScene(sc);}); en.addEventListener('click',function(){var sc=activeScene(); if(sc) playScene(sc);});
   var FORM_ENDPOINT=''; /* t.ex. https://formspree.io/f/xxxx – tom = öppnar e-postprogrammet */
+  (function(){var el=document.getElementById('wl');if(!el)return;
+    var T=[
+     {n:'Nordbesiktning',u:{sv:'handboken.nordbesiktning.se',en:'handboken.nordbesiktning.se'},a:'#B84241',at:'#fff',sb:'#F3EEE8',sf:'#2B2B2B',
+      d:{sv:['TSFS 2017:54','Fabrikat & modell','Kontaktvägar'],en:['TSFS 2017:54','Make & model','Contacts']},
+      q:{sv:'kulhandske slitage',en:'ball coupling wear'},h:{sv:'Kulhandske',en:'Ball coupling'},s:{sv:'påtagligt skadad eller sliten',en:'noticeably damaged or worn'},g:'2',
+      r:{sv:'TSFS 2017:54 · bilaga 1 · 9.1.7',en:'TSFS 2017:54 · annex 1 · 9.1.7'},b:{sv:'Öppna sida 89–92 →',en:'Open page 89–92 →'},
+      st:{sv:'Frågor den här veckan',en:'Questions this week'},bars:[['Uppsala',412],['Västerås',388],['Gävle',301]]},
+     {n:'Kyst Kontroll',u:'handboka.kystkontroll.no',a:'#5BC0EB',at:'#0B2236',sb:'#0F2A44',sf:'#EAF1F8',
+      d:['Kontrollinstruksen','Merke og modell','Kontakter'],q:'trekantrefleks tilhenger',h:'Trekantreflekser bak',s:'mangler på tilhenger',g:'2',
+      r:'Statens vegvesen · kontrollinstruksen',b:'Åpne kilden →',st:'Spørsmål denne uken',bars:[['Bergen',356],['Stavanger',298],['Ålesund',144]]},
+     {n:'Syn & Kontrol',u:'haandbog.synkontrol.dk',a:'#2F7D4E',at:'#fff',sb:'#1C1C1C',sf:'#F2F2F2',
+      d:['Synsvejledningen','Mærke og model','Kontakter'],q:'trekantreflekser trailer',h:'Trekantreflekser bag',s:'mangler på påhængsvogn',g:'Omsyn',
+      r:'Færdselsstyrelsen · vejledning om syn',b:'Åbn kilden →',st:'Spørgsmål i denne uge',bars:[['Aarhus',402],['Odense',367],['Aalborg',251]]}];
+    var cur=0,timer=null,auto=true,$=function(s){return el.querySelector(s)};
+    function L(v){var en=document.body.classList.contains('en');return (v&&typeof v==='object'&&!Array.isArray(v)&&('sv' in v))?v[en?'en':'sv']:v}
+    var pick=$('.wl-pick');T.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.innerHTML='<i style="background:'+t.a+'"></i>';b.appendChild(document.createTextNode(t.n));b.addEventListener('click',function(){auto=false;clearInterval(timer);show(i)});pick.appendChild(b)});
+    function fill(i){var t=T[i];el.style.setProperty('--a',t.a);el.style.setProperty('--at',t.at);el.style.setProperty('--sb',t.sb);el.style.setProperty('--sf',t.sf);
+      $('.wl-url').textContent=L(t.u);$('.wl-mark').textContent=t.n.charAt(0);$('.wl-name').textContent=t.n;
+      var d=$('.wl-docs');d.textContent='';L(t.d).forEach(function(x){var s=document.createElement('span');s.textContent=x;d.appendChild(s)});
+      $('.wl-query').textContent=L(t.q);$('.wl-h').textContent=L(t.h);$('.wl-sub').textContent=L(t.s);var g=$('.wl-grade');g.textContent=t.g;g.classList.toggle('w',t.g.length>2);
+      $('.wl-src').textContent=L(t.r);$('.wl-btn').textContent=L(t.b);$('.wl-st').textContent=L(t.st);
+      var bs=$('.wl-bars');bs.textContent='';var mx=Math.max.apply(null,t.bars.map(function(x){return x[1]}));t.bars.forEach(function(x){var r=document.createElement('div');r.innerHTML='<span></span><u><b style="width:0"></b></u><span></span>';r.children[0].textContent=x[0];r.children[2].textContent=x[1];bs.appendChild(r);var w=Math.round(x[1]/mx*100)+'%';requestAnimationFrame(function(){requestAnimationFrame(function(){r.querySelector('b').style.width=w})})});
+      [].forEach.call(pick.children,function(b,j){b.setAttribute('aria-selected',j===i?'true':'false')});cur=i}
+    function show(i){el.classList.add('sw');setTimeout(function(){fill(i);el.classList.remove('sw')},220)}
+    fill(0);
+    if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches)){timer=setInterval(function(){if(auto&&!el.matches(':hover'))show((cur+1)%T.length)},4500)}
+    new MutationObserver(function(){fill(cur)}).observe(document.body,{attributes:true,attributeFilter:['class']});
+  })();
   var cf=document.getElementById('cf');
   cf.addEventListener('submit',function(e){ e.preventDefault();
     var ok=document.getElementById('f-ok'), er=document.getElementById('f-err'), m=document.getElementById('f-mail');
